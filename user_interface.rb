@@ -1,3 +1,5 @@
+require 'pry'
+
 class UserInterface
   
   attr_reader :choice
@@ -16,6 +18,15 @@ class UserInterface
 
   def display_filepath(path)
     puts "File written successfully at #{path}"
+  end
+  
+  def get_data(list)
+    data = Hash.new
+    list.each do |item|
+      print "#{item.capitalize}: "
+      data[item] = gets.chomp
+    end
+    return data
   end
 
   def get_choice

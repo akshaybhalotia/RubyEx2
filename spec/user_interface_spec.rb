@@ -25,4 +25,18 @@ describe UserInterface do
       expect(ui).to respond_to(:choice)
     end
   end
+
+  describe "#get_data" do
+    let(:list) {[:name, :age]}
+    
+    it "has same output keys as given" do
+      allow(ui).to receive(:gets).and_return("Test\n12")
+      expect(ui.get_data(list).keys).to eq(list)
+    end
+
+    it "accepts data from user" do
+      allow(ui).to receive(:gets).and_return("Test\n12")
+      expect(ui.get_data(list)).to be_a_instance_of(Hash)
+    end
+  end
 end
