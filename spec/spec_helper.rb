@@ -22,6 +22,7 @@ require_relative '../file_formatter'
 require_relative '../formats/file_generator'
 require_relative '../formats/csv_generator'
 require_relative '../formats/pdf_generator'
+require_relative '../resume_gen'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate

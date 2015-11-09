@@ -12,7 +12,7 @@ describe UserInterface do
 
   describe "#display_list" do
     it "displays a list of file formats available" do
-      expect{ui.display_list(%w[Pdf csv])}.to output("1. PDF\n2. CSV\n").to_stdout
+      expect{ui.display_list(%w[Pdf csv])}.to output("1. PDF\n2. CSV\nPress 0 to exit\n").to_stdout
     end
     
     it "displays relevant message when no formats available" do

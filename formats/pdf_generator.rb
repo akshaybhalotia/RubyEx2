@@ -1,7 +1,7 @@
 require_relative 'file_generator'
 require 'prawn'
 
-class PDFGenerator < FileGenerator
+class Formats::PDFGenerator < Formats::FileGenerator
   FILE_TYPE = "PDF"
   
   def self.write_to_file(data)
@@ -10,7 +10,6 @@ class PDFGenerator < FileGenerator
       data.each {|key, value| text "#{key}: #{value}"}
     end
     path = File.expand_path(file)
-    binding.pry
     file.close
     return path
   end

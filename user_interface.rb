@@ -1,5 +1,3 @@
-require 'pry'
-
 class UserInterface
   
   attr_reader :choice
@@ -14,6 +12,7 @@ class UserInterface
       return
     end
     list.each_with_index {|item, index| puts "#{index+1}. #{item.upcase}"}
+    puts "Press 0 to exit"
   end
 
   def display_filepath(path)

@@ -1,6 +1,6 @@
 require_relative 'file_generator'
 
-class CSVGenerator < FileGenerator
+class Formats::CSVGenerator < Formats::FileGenerator
   FILE_TYPE = "Csv"
   
   def self.write_to_file(data)
@@ -9,7 +9,6 @@ class CSVGenerator < FileGenerator
       file.puts "#{key},#{value}"
     end
     path = File.expand_path(file)
-    binding.pry
     file.close
     return path
   end
