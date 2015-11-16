@@ -12,7 +12,7 @@ class UserInterface
       return
     end
     list.each_with_index {|item, index| puts "#{index+1}. #{item.upcase}"}
-    puts "Press 0 to exit"
+    puts "Input anything else to exit"
   end
 
   def display_filepath(path)

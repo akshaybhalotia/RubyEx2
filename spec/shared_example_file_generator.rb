@@ -1,6 +1,10 @@
 shared_examples "File Generator" do |klass|
-  it "is overriden" do
+  it "write_to_file overriden" do
     expect(is_overridden?(klass.method(:write_to_file))).to be true
+  end
+
+  it "file_type overriden" do
+    expect(is_overridden?(klass.method(:file_type))).to be true
   end
 end
 

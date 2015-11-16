@@ -24,8 +24,13 @@ class ResumeGen
   end
   
   def user_choice
-    @user_interface.display_list(fetch_list)
-    @user_interface.get_choice
+    list = fetch_list
+    @user_interface.display_list(list)
+    choice = @user_interface.get_choice
+    if (choice > list.size || choice <= 0)
+      exit
+    end
+    return choice
   end
 
   def print_file(info, choice)
@@ -36,4 +41,10 @@ class ResumeGen
     @user_interface.display_filepath(print_file(input_data, user_choice))
   end
 
+end
+
+if (__FILE__ == $0)
+  resume_gen = ResumeGen.new([:name, :age, :qualification, :experience, :"last work place"])
+  resume_gen.print_welcome
+  resume_gen.display_file_path
 end

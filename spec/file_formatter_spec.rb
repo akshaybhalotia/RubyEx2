@@ -17,6 +17,12 @@ describe FileFormatter do
       end
     end
   end
+
+  describe "#has_required_methods?" do
+    it "checks if given class has required methods to be a file format" do
+      expect(file_formatter.has_required_methods?(Formats::CSVGenerator)).to be true
+    end
+  end
   
   describe "#output_file" do
     let (:data) {{name: 'Akshay', age: 23}}
