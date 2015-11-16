@@ -11,20 +11,29 @@ class ResumeGen
     @file_formatter = FileFormatter.new
   end
 
-  def input_data
+  def print_welcome
     @user_interface.welcome
+  end
+    
+  def input_data
     @user_interface.get_data(@fields)
   end
 
-  def user_choice
+  def fetch_list
     list = @file_formatter.get_formats
-    @user_interface.display_list(list)
+  end
+  
+  def user_choice
+    @user_interface.display_list(fetch_list)
     @user_interface.get_choice
   end
 
   def print_file(info, choice)
     path = @file_formatter.output_file(info, choice)
-    @user_interface.display_filepath(path)
+  end
+
+  def display_file_path
+    @user_interface.display_filepath(print_file(input_data, user_choice))
   end
 
 end

@@ -20,9 +20,13 @@ describe FileFormatter do
   
   describe "#output_file" do
     let (:data) {{name: 'Akshay', age: 23}}
-    it "writes to file based on choice" do
-      path = file_formatter.output_file(data, 2)
+    let (:path) {file_formatter.output_file(data, 2)}
+    
+    it "gives path of the newly written file based on choice" do
       expect(path).to be_an_instance_of(String)
+    end
+
+    it "gives a path that always contains 'Resume'" do
       expect(path).to match(/Resume/)
     end
   end

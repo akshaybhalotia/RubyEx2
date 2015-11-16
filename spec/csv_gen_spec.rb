@@ -11,11 +11,14 @@ describe "Formats::CSV Generator" do
 
   describe ".write_to_file" do
     let (:data) {{name: 'Akshay', age: 23}}
+    let (:path) {Formats::CSVGenerator.write_to_file(data)}
     it_behaves_like "File Generator", Formats::CSVGenerator
 
     it "gives path of the file it writes to" do
-      path = Formats::CSVGenerator.write_to_file(data)
       expect(path).to be_an_instance_of(String)
+    end
+
+    it "gives a path which contains relevant file name" do
       expect(path).to match(/Resume.csv/)
     end
   end
